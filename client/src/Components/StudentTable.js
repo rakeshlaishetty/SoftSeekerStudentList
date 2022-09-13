@@ -6,7 +6,7 @@ import "./style.css";
 const StudentTable = () => {
   useEffect(() => {
     async function Getdata() {
-      const response = await fetch("/api/all");
+      const response = await fetch("http://localhost:8080/api/all");
       const data = await response.json();
       SetStudents(data);
     }
