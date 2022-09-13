@@ -18,7 +18,7 @@ const AllStudent = () => {
   console.log(students);
   const RegisterData = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8080/api/post", {
+    fetch("/api/post", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

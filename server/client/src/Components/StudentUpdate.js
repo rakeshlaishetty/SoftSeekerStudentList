@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
+import { useParams } from "react-router-dom";
 
 const StudentUpdate = () => {
+  let { id } = useParams();
+  console.log("our id is" + id);
   useEffect(() => {
     async function Getdata() {
-      const response = await fetch(
-        "http://localhost:8080/api/6319ccec7af16f0f8b0c4d9c"
-      );
+      const response = await fetch(`/api/${id}`);
       const data = await response.json();
       SetStudents(data);
     }
@@ -27,7 +28,7 @@ const StudentUpdate = () => {
   const handleSubmit = async (e) => {
     console.log(students);
     e.preventDefault();
-    fetch("http://localhost:8080/api/6319ccec7af16f0f8b0c4d9c", {
+    fetch(`/api/${id}`, {
       method: "PATCH", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
